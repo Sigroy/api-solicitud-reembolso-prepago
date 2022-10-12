@@ -9,7 +9,7 @@ public interface ISolicitudFacturacionNSService : IGenericService
 {
     Task<IList<SolicitudFacturacionNSDTO>> GetAllAsync(string filtro = "");
 
-    Task<int> CreateAsync(SolicitudFacturacionNSDTO auto);
+    Task<int> CreateAsync(SolicitudFacturacionNSDTO solicitud);
 
     Task<SolicitudFacturacionNSDTO> GetbyIdAsync(int id);
 }
