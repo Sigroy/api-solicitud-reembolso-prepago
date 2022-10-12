@@ -17,8 +17,9 @@
 
     <ItemGroup>
       <Folder Include="Controllers" />
-      <Folder Include="Layers\Application" />
-      <Folder Include="Layers\Domain" />
+      <Folder Include="Layers\Infrastructure\Aggregates" />
+      <Folder Include="Layers\Infrastructure\Persisters" />
+      <Folder Include="Layers\Infrastructure\Services" />
     </ItemGroup>
 
 </Project>

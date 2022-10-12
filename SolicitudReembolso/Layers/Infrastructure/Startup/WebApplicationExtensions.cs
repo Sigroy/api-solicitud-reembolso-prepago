@@ -8,7 +8,7 @@ namespace Avis.SolicitudReembolso.Infrastructure
     {
         private static void AddAutomapper()
         {
-            var config = new MapperConfiguration(cfg => { cfg.AddProfile<DomainMappings>(); });
+            var config = new MapperConfiguration(cfg => { cfg.AddProfile<DomainMapping>(); });
 
             var mapper = config.CreateMapper();
             MapperFactory.AddMapper(mapper);
