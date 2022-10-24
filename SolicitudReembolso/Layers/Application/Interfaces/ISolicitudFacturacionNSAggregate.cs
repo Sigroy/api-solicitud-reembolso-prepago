@@ -5,5 +5,5 @@ namespace Avis.SolicitudReembolso.Application;
 
 public interface ISolicitudFacturacionNSAggregate : IAggregate
 {
-    Task<int> CreateAsync(SolicitudFacturacionNSDTO solicitudFacturacion);
+    Task<int> CreateAsync(SolicitudesFacturacionNSDTO solicitud);
 }

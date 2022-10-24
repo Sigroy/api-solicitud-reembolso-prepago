@@ -9,9 +9,9 @@ namespace Avis.SolicitudReembolso.Infrastructure;
 
 public class SolicitudFacturacionNSAggregate : ISolicitudFacturacionNSAggregate
 {
-    private SolicitudFacturacionNS _solicitud;
+    private SolicitudesFacturacionNS _solicitud;
 
-    private readonly IValidator<SolicitudFacturacionNSDTO> _validator;
+    private readonly IValidator<SolicitudesFacturacionNSDTO> _validator;
 
     private readonly IDapperUnitofWork _unitofWork;
 
@@ -19,14 +19,14 @@ public class SolicitudFacturacionNSAggregate : ISolicitudFacturacionNSAggregate
 
     public bool Success { get; private set; } = false;
 
-    public SolicitudFacturacionNSAggregate(IValidator<SolicitudFacturacionNSDTO> validator,
+    public SolicitudFacturacionNSAggregate(IValidator<SolicitudesFacturacionNSDTO> validator,
         IDapperUnitofWork unitofWork)
     {
         _unitofWork = unitofWork;
         _validator = validator;
     }
 
-    public async Task<int> CreateAsync(SolicitudFacturacionNSDTO solicitud)
+    public async Task<int> CreateAsync(SolicitudesFacturacionNSDTO solicitud)
     {
         Success = false;
         int id = 0;
@@ -41,7 +41,7 @@ public class SolicitudFacturacionNSAggregate : ISolicitudFacturacionNSAggregate
             }
             else
             {
-                _solicitud = solicitud.ToModelorVM<SolicitudFacturacionNS>();
+                _solicitud = solicitud.ToModelorVM<SolicitudesFacturacionNS>();
                 var key = Guid.NewGuid().ToString();
                 _solicitud.SolicitudFacturacionNSPkey = key;
 

@@ -22,7 +22,7 @@ namespace Avis.SolicitudReembolso.Infrastructure
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v3/swagger.json", "API registro de solicitud de reembolso de prepago");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API registro de solicitud de reembolso de prepago");
 
                 c.InjectStylesheet("/swaggerext/swagger-ui.css");
                 c.InjectJavascript("/swaggerext/swagger-ui.js", "text/javascript");

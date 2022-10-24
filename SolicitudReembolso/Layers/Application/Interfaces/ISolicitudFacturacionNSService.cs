@@ -7,9 +7,9 @@ namespace Avis.SolicitudReembolso.Application;
 
 public interface ISolicitudFacturacionNSService : IGenericService
 {
-    Task<IList<SolicitudFacturacionNSDTO>> GetAllAsync(string filtro = "");
+    Task<IList<SolicitudesFacturacionNSDTO>> GetAllAsync(string filtro = "");
 
-    Task<int> CreateAsync(SolicitudFacturacionNSDTO solicitud);
+    Task<int> CreateAsync(SolicitudesFacturacionNSDTO solicitud);
 
-    Task<SolicitudFacturacionNSDTO> GetbyIdAsync(int id);
+    Task<SolicitudesFacturacionNSDTO> GetbyIdAsync(int id);
 }

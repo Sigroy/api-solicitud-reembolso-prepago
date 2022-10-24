@@ -14,8 +14,8 @@ public class SolicitudFacturacionNSService : ISolicitudFacturacionNSService
 {
     private readonly ISolicitudFacturacionNSAggregate _solicitud;
 
-    public readonly IQryRepository<SolicitudFacturacionNS> _qryRepository;
-    public readonly ICmdRepository<SolicitudFacturacionNS> _cmdRepository;
+    public readonly IQryRepository<SolicitudesFacturacionNS> _qryRepository;
+    public readonly ICmdRepository<SolicitudesFacturacionNS> _cmdRepository;
 
     public IList<InternalException> Errores { get; } = new List<InternalException>();
 
@@ -29,14 +29,14 @@ public class SolicitudFacturacionNSService : ISolicitudFacturacionNSService
     {
         _solicitud = solicitud;
         //_unitofWork = unitofWork;
-        _qryRepository = RepositoryResolver.GetQryRepositoryInstance<SolicitudFacturacionNS>(sqlConnection, dbTransaction);
-        _cmdRepository = RepositoryResolver.GetCmdRepositoryInstance<SolicitudFacturacionNS>(sqlConnection, dbTransaction);
+        _qryRepository = RepositoryResolver.GetQryRepositoryInstance<SolicitudesFacturacionNS>(sqlConnection, dbTransaction);
+        _cmdRepository = RepositoryResolver.GetCmdRepositoryInstance<SolicitudesFacturacionNS>(sqlConnection, dbTransaction);
     }
 
-    public async Task<IList<SolicitudFacturacionNSDTO>> GetAllAsync(string filtro = "")
+    public async Task<IList<SolicitudesFacturacionNSDTO>> GetAllAsync(string filtro = "")
     {
         Success = true;
-        IList<SolicitudFacturacionNSDTO> lista = new List<SolicitudFacturacionNSDTO>();
+        IList<SolicitudesFacturacionNSDTO> lista = new List<SolicitudesFacturacionNSDTO>();
         try
         {
             //Dapper
@@ -44,7 +44,7 @@ public class SolicitudFacturacionNSService : ISolicitudFacturacionNSService
 
             if (_qryRepository.Success)
             {
-                lista = temp.ToListOfDestination<SolicitudFacturacionNSDTO>();
+                lista = temp.ToListOfDestination<SolicitudesFacturacionNSDTO>();
             }
             else
             {
@@ -74,16 +74,16 @@ public class SolicitudFacturacionNSService : ISolicitudFacturacionNSService
         return lista;
     }
 
-    public async Task<SolicitudFacturacionNSDTO> GetbyIdAsync(int id)
+    public async Task<SolicitudesFacturacionNSDTO> GetbyIdAsync(int id)
     {
         Success = true;
-        SolicitudFacturacionNSDTO item = null;
+        SolicitudesFacturacionNSDTO item = null;
         try
         {
             var elemento = await _qryRepository.GetByIdAsync(id);
             if (_qryRepository.Success)
             {
-                item = elemento.ToModelorVM<SolicitudFacturacionNSDTO>();
+                item = elemento.ToModelorVM<SolicitudesFacturacionNSDTO>();
             }
             else
             {
@@ -113,7 +113,7 @@ public class SolicitudFacturacionNSService : ISolicitudFacturacionNSService
         return item;
     }
 
-    public async Task<int> CreateAsync(SolicitudFacturacionNSDTO solicitud)
+    public async Task<int> CreateAsync(SolicitudesFacturacionNSDTO solicitud)
     {
         Success = true;
         int id = 0;

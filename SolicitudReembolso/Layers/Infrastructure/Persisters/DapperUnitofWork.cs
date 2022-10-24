@@ -14,18 +14,19 @@ namespace Avis.SolicitudReembolso.Infrastructure;
 /// </summary>
 public class DapperUnitofWork : UnitofWorkBase, IDapperUnitofWork
 {
-    public IQryRepository<SolicitudFacturacionNS> SolicitudQryRepository { get; private set; }
-    public ICmdRepository<SolicitudFacturacionNS> SolicitudCmdRepository { get; private set; }
+    public IQryRepository<SolicitudesFacturacionNS> SolicitudQryRepository { get; private set; }
+    public ICmdRepository<SolicitudesFacturacionNS> SolicitudCmdRepository { get; private set; }
 
-    public IInMemoryRepository<SolicitudFacturacionNS> InMemoryRepository { get; private set; }
+    public IInMemoryRepository<SolicitudesFacturacionNS> InMemoryRepository { get; private set; }
 
     public DapperUnitofWork(SqlConnection sqlConnection, IDbTransaction dbTransaction) : base(dbTransaction)
     {
         SolicitudQryRepository =
-            RepositoryResolver.GetQryRepositoryInstance<SolicitudFacturacionNS>(sqlConnection, dbTransaction);
-        SolicitudCmdRepository =
-            RepositoryResolver.GetCmdRepositoryInstance<SolicitudFacturacionNS>(sqlConnection, dbTransaction);
+            RepositoryResolver.GetQryRepositoryInstance<SolicitudesFacturacionNS>(sqlConnection, dbTransaction, "", false);
 
-        InMemoryRepository = RepositoryResolver.GetInMemoryRepositoryInstance<SolicitudFacturacionNS>();
+        SolicitudCmdRepository =
+            RepositoryResolver.GetCmdRepositoryInstance<SolicitudesFacturacionNS>(sqlConnection, dbTransaction, "", false);
+
+        InMemoryRepository = RepositoryResolver.GetInMemoryRepositoryInstance<SolicitudesFacturacionNS>();
     }
 }

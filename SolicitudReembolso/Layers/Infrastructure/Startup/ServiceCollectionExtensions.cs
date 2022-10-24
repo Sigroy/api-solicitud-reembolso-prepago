@@ -13,8 +13,8 @@ using AVIS.CoreBase6.Middleware;
 using Avis.SolicitudReembolso.Domain;
 using Avis.SolicitudReembolso.Application;
 
-namespace Avis.SolicitudReembolso.Infrastructure
-{
+namespace Avis.SolicitudReembolso.Infrastructure;
+
     /// <summary>
     /// Extension para definir la inyeccion de dependencia del proyecto
     /// </summary>
@@ -26,7 +26,7 @@ namespace Avis.SolicitudReembolso.Infrastructure
             {
                 var info = new OpenApiInfo();
                 info.Title = "API solicitud de reembolso de prepago";
-                info.Version = "V3";
+                info.Version = "V1";
                 info.Contact = new OpenApiContact
                 {
                     Name = "Area TI Grupo Gomex",
@@ -37,28 +37,28 @@ namespace Avis.SolicitudReembolso.Infrastructure
                     Name = "Licencia de uso.",
                     Url = new Uri("https://www.apache.org/licenses/LICENSE-2.0.txt"),
                 };
-                c.SwaggerDoc("v3", info);
-                c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
-                {
-                    In = ParameterLocation.Header,
-                    Description = "Please insert JWT with Bearer into field",
-                    Name = "Authorization",
-                    Type = SecuritySchemeType.ApiKey
-                });
-                c.AddSecurityRequirement(new OpenApiSecurityRequirement
-                {
-                    {
-                        new OpenApiSecurityScheme
-                        {
-                            Reference = new OpenApiReference
-                            {
-                                Type = ReferenceType.SecurityScheme,
-                                Id = "Bearer"
-                            }
-                        },
-                        new string[] { }
-                    }
-                });
+                c.SwaggerDoc("v1", info);
+                //c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                //{
+                //    In = ParameterLocation.Header,
+                //    Description = "Please insert JWT with Bearer into field",
+                //    Name = "Authorization",
+                //    Type = SecuritySchemeType.ApiKey
+                //});
+                //c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                //{
+                //    {
+                //        new OpenApiSecurityScheme
+                //        {
+                //            Reference = new OpenApiReference
+                //            {
+                //                Type = ReferenceType.SecurityScheme,
+                //                Id = "Bearer"
+                //            }
+                //        },
+                //        new string[] { }
+                //    }
+                //});
 
 
                 //El nombre por default es el nombre del ensamblado con la extension XML
@@ -68,8 +68,8 @@ namespace Avis.SolicitudReembolso.Infrastructure
                 c.IncludeXmlComments(xmlPath);
             });
 
-            services.AddAuthentication("BasicAuthentication")
-                .AddScheme<AuthenticationSchemeOptions, SwagBasicAuthenticationHandler>("BasicAuthentication", null);
+            //services.AddAuthentication("BasicAuthentication")
+            //    .AddScheme<AuthenticationSchemeOptions, SwagBasicAuthenticationHandler>("BasicAuthentication", null);
 
             services.AddScoped<ISwagUserService, SwagUserService>();
 
@@ -110,8 +110,7 @@ namespace Avis.SolicitudReembolso.Infrastructure
         public static IServiceCollection AddValidators(this IServiceCollection services)
         {
             //Declaracion de validadores
-            services.AddScoped<IValidator<SolicitudFacturacionNSDTO>, SolicitudFacturacionNSDTOValidator>();
+            services.AddScoped<IValidator<SolicitudesFacturacionNSDTO>, SolicitudFacturacionNSDTOValidator>();
             return services;
         }
     }
-}

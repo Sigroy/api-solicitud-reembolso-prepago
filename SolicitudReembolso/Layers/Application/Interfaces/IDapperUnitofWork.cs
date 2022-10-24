@@ -9,8 +9,8 @@ namespace Avis.SolicitudReembolso.Application;
 
 public interface IDapperUnitofWork : IUnitofWork
 {
-    IQryRepository<SolicitudFacturacionNS> SolicitudQryRepository { get; }
-    ICmdRepository<SolicitudFacturacionNS> SolicitudCmdRepository { get; }
+    IQryRepository<SolicitudesFacturacionNS> SolicitudQryRepository { get; }
+    ICmdRepository<SolicitudesFacturacionNS> SolicitudCmdRepository { get; }
 
-    IInMemoryRepository<SolicitudFacturacionNS> InMemoryRepository { get; }
+    IInMemoryRepository<SolicitudesFacturacionNS> InMemoryRepository { get; }
 }

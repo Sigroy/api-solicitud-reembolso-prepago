@@ -10,6 +10,6 @@ public class DomainMapping : Profile
     
     public DomainMapping()
     {
-        CreateMap<SolicitudFacturacionNSDTO, SolicitudFacturacionNS>().ReverseMap();
+        CreateMap<SolicitudesFacturacionNSDTO, SolicitudesFacturacionNS>().ReverseMap();
     }
 }

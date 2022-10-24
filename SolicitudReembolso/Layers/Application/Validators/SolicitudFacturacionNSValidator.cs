@@ -8,7 +8,7 @@ namespace Avis.SolicitudReembolso.Application;
 /// <summary>
 /// Implementa el validador para el DTO
 /// </summary>
-public class SolicitudFacturacionNSDTOValidator : AbstractValidator<SolicitudFacturacionNSDTO>
+public class SolicitudFacturacionNSDTOValidator : AbstractValidator<SolicitudesFacturacionNSDTO>
 {
     /// <summary>
     /// Contiene las reglas de validacion

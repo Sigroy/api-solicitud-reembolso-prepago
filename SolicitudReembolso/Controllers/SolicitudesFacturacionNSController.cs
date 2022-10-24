@@ -22,7 +22,7 @@ public class SolicitudesFacturacionNSController : ControllerBase
     }
 
     [HttpGet]
-    [JwtAuthorizeAttributeV2(true)] //--> Ojo debe tener el valor inicial en true para usar con Medotos de Api
+    // [JwtAuthorizeAttributeV2(true)] //--> Ojo debe tener el valor inicial en true para usar con Medotos de Api
     public async Task<IActionResult> GetAllAsync()
     {
         try
@@ -60,8 +60,8 @@ public class SolicitudesFacturacionNSController : ControllerBase
 
 
     [HttpPost("Create")]
-    [JwtAuthorizeAttributeV2(true)]
-    public async Task<IActionResult> CreateAsync([FromBody] SolicitudFacturacionNSDTO solicitud)
+    // [JwtAuthorizeAttributeV2(true)]
+    public async Task<IActionResult> CreateAsync([FromBody] SolicitudesFacturacionNSDTO solicitud)
     {
         try
         {
