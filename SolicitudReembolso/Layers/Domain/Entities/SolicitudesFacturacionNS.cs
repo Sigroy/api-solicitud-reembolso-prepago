@@ -113,8 +113,7 @@ public class SolicitudesFacturacionNS
         UsuarioFinalRCH = "";
         MesRCH = "";
         ClienteNS = 0;
-        ComentariosAdicionales = "";
-        FechaAlta = new DateTime(1900, 1, 1);
+        FechaAlta = DateTime.Now;
         FechaFinalizacion = new DateTime(1900, 1, 1);
         UsuarioAtiendeCEA = "";
         DiagnosticoCEA = "";
@@ -128,9 +127,7 @@ public class SolicitudesFacturacionNS
         ArchivoEvidencia2 = "";
         ArchivoEvidencia3 = "";
         cuenta = "";
-        FechaCI = new DateTime(1900, 1, 1);
         ImporteCI = 0;
-        FechaCO = new DateTime(1900, 1, 1);
         ImporteCO = 0;
         TipoDep = "";
         Autorizacion = "";
